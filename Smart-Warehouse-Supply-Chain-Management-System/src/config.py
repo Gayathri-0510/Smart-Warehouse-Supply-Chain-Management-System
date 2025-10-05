@@ -1,9 +1,9 @@
-import streamlit as st
+import os
 from supabase import create_client, Client
+import streamlit as st
 
-# Get Supabase credentials from Streamlit Secrets
-SUPABASE_URL = st.secrets.get("SUPABASE_URL")
-SUPABASE_KEY = st.secrets.get("SUPABASE_KEY")
+SUPABASE_URL = st.secrets["SUPABASE_URL"]
+SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
 
 def get_supabase() -> Client:
     if not SUPABASE_URL or not SUPABASE_KEY:
@@ -11,3 +11,4 @@ def get_supabase() -> Client:
             "SUPABASE_URL and SUPABASE_KEY must be set as environment variables or in Streamlit Secrets."
         )
     return create_client(SUPABASE_URL, SUPABASE_KEY)
+
