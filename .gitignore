@@ -17,3 +17,6 @@ __pycache__/
 
 # Streamlit
 .streamlit/
+
+# Test files
+test_simple.py
